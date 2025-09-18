@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import Responsive from "./components/Responsive";
-import Provider from "./components/Hoc/Provider";
 
 const font = Roboto({
   weight:['100', '200', '300','400', '500','600','700','800','900'],
@@ -32,10 +31,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={` ${font.className} antialiased`}>
-          <Provider>
           <Responsive/>
         {children}
-        </Provider>
       </body>
     </html>
   );

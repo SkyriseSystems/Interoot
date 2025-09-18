@@ -1,7 +1,7 @@
-'use client';
-import React, { useState } from 'react'
-import MobileHeader from './MobileHeader'
-import Header from './Header'
+"use client";
+import React, { useState } from 'react';
+import MobileHeader from './MobileHeader';
+import Header from './Header';
 
 const Responsive = () => {
   const [showNav, setShowNav] = useState(false);
@@ -11,9 +11,8 @@ const Responsive = () => {
     <div>
       <Header openNav={openNavHandler} />
       <MobileHeader showNav={showNav} closeNav={closeNavHandler} />
-     
     </div>
-  )
-}
+  );
+};
 
-export default Responsive
+export default Responsive;
