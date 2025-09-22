@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'; // Importing arrow icons from react-icons
-import { FaClock, FaTools, FaUsers } from 'react-icons/fa'; // Importing icons for experience blocks
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FaClock, FaTools, FaUsers } from 'react-icons/fa';
+import Footer from './components/Footer';
 
 const Page = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [openIndex, setOpenIndex] = useState(null); // State to manage which FAQ is open
   const slides = [
     {
       title: "Join us & Receive the Best repair solutions",
@@ -56,6 +58,30 @@ const Page = () => {
   const goToNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
+
+  // Toggle FAQ accordion
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "What products do you offer?",
+      answer: "We offer a wide range of products including speakers, headphones, laptops, laptop bags, and TVs, all with the latest technology and best deals.",
+    },
+    {
+      question: "How long does repair service take?",
+      answer: "Repair services typically take 2-5 business days depending on the complexity, with emergency repairs available within 24 hours.",
+    },
+    {
+      question: "Do you offer warranties on products?",
+      answer: "Yes, all products come with a standard 1-year warranty, with extended options available for purchase.",
+    },
+    {
+      question: "What is your return policy?",
+      answer: "We offer a 30-day return policy for unopened products. Please contact us for return instructions within this period.",
+    },
+  ];
 
   return (
     <main className="min-h-screen">
@@ -191,10 +217,160 @@ const Page = () => {
               <Image src="/images/lnoc.jpg" width={90} height={50} alt="Partner 1" className="mx-8" />
               <Image src="/images/undp.jpg" width={90} height={50} alt="Partner 2" className="mx-8" />
               <Image src="/images/lnoc.jpg" width={90} height={50} alt="Partner 3" className="mx-8" />
+              <Image src="/images/lnoc.jpg" width={90} height={50} alt="Partner 1" className="mx-8" />
+              <Image src="/images/undp.jpg" width={90} height={50} alt="Partner 2" className="mx-8" />
+              <Image src="/images/lnoc.jpg" width={90} height={50} alt="Partner 3" className="mx-8" />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Trending Products Section */}
+      <section className="container mx-auto px-4 py-16 bg-gray-100 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white text-center mb-12">
+            Take your home entertainment to new heights
+          </h2>
+          <nav className="flex justify-center space-x-8 mb-12 text-gray-600 dark:text-gray-300 text-sm">
+            <a href="#" className="hover:text-blue-700 dark:hover:text-blue-300">Trending TVs</a>
+            <a href="#" className="hover:text-blue-700 dark:hover:text-blue-300">Audio</a>
+            <a href="#" className="hover:text-blue-700 dark:hover:text-blue-300">Lifestyle Screens</a>
+            <a href="#" className="hover:text-blue-700 dark:hover:text-blue-300">webOS Smart Platform</a>
+          </nav>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Card 1: Binge-worthy deals */}
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/tv.jpg" // Replace with actual image for TV deals
+                  width={400}
+                  height={300}
+                  alt="Binge-worthy deals"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  Binge-worthy deals for all
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Take advantage of limited-time offers on your favorite movies, live sports, and more on your new LG TV. Available exclusively.
+                </p>
+                <button className="bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-500 transition-colors duration-300 w-full">
+                  Shop Now
+                </button>
+              </div>
+            </div>
+
+            {/* Card 2: Future of Sound */}
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/sound.jpg" // Replace with actual image for audio
+                  width={400}
+                  height={300}
+                  alt="Future of Sound"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  The Future of Sound is Now
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Elevate your listening experience with audio crafted by multi-platinum artist will.i.am.
+                </p>
+                <button className="bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-500 transition-colors duration-300 w-full">
+                  Shop Now
+                </button>
+              </div>
+            </div>
+
+            {/* Card 3: Elevate Gaming */}
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/xbox.jpg" // Replace with actual image for gaming
+                  width={400}
+                  height={300}
+                  alt="Elevate Gaming"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  Elevate your gaming with
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Xbox Game Pass Ultimate. Just launch the Xbox app on your LG TV for access to hundreds of premium titles.
+                </p>
+                <button className="bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-500 transition-colors duration-300 w-full">
+                  Shop Now
+                </button>
+              </div>
+            </div>
+
+            {/* Card 4: Brilliant Vibrant Color */}
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/laptop.jpg" // Replace with actual image for webOS
+                  width={400}
+                  height={300}
+                  alt="Brilliant Vibrant Color"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  Brilliantly Vibrant Color,
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Stunningly Smart laptop, with high resolution and equiped with windows and microsoft office. With the best deals available.
+                </p>
+                <button className="bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-500 transition-colors duration-300 w-full">
+                  Shop Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Frequently Asked Questions Section */}
+      <section className="container mx-auto px-4 py-16 bg-gray-100 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-gray-300 dark:border-gray-600 rounded-lg">
+                <button
+                  className="w-full text-left p-4 text-lg font-semibold text-gray-900 dark:text-white bg-white dark:bg-gray-700 flex justify-between items-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  {faq.question}
+                  <span>{openIndex === index ? '−' : '+'}</span>
+                </button>
+                {openIndex === index && (
+                  <div className="p-4 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-700">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <button className="bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-500 transition-colors duration-300">
+              View All FAQs
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer />
     </main>
   );
 };

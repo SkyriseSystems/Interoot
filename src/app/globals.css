@@ -88,3 +88,80 @@
   display: inline-flex;
   animation: scroll 10s linear infinite;
 }
+/* Add to global.css */
+
+/* Explore Page Styles */
+.explore-hero-section {
+  @apply relative overflow-hidden;
+}
+
+.explore-hero-title {
+  @apply text-4xl lg:text-6xl font-bold;
+}
+
+.explore-hero-subtitle {
+  @apply text-xl lg:text-2xl;
+}
+
+.explore-hero-button {
+  @apply bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-red-500 hover:text-white transition-colors duration-300 inline-flex items-center;
+}
+
+.explore-services-section,
+.explore-repairs-section {
+  @apply relative;
+}
+
+.explore-section-title {
+  @apply text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white;
+}
+
+.explore-service-card,
+.explore-repair-card {
+  @apply cursor-pointer;
+}
+
+.explore-service-icon {
+  @apply text-blue-600;
+}
+
+.explore-service-title,
+.explore-repair-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-white;
+}
+
+.explore-service-description,
+.explore-repair-description {
+  @apply text-base;
+}
+
+.explore-cta-button {
+  @apply bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-500 transition-colors duration-300 inline-flex items-center;
+}
+
+.explore-repair-image-container {
+  @apply relative h-48 overflow-hidden;
+}
+
+.explore-repair-image {
+  @apply w-full h-full object-cover transition-transform duration-300 hover:scale-105;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .explore-hero-title {
+    @apply text-3xl;
+  }
+  
+  .explore-section-title {
+    @apply text-2xl;
+  }
+  
+  .explore-cta-button {
+    @apply block ml-0 mt-4 w-full text-center;
+  }
+  
+  .explore-repair-image-container {
+    @apply h-36;
+  }
+}
