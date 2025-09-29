@@ -6,14 +6,14 @@ import { useState } from 'react';
 
 export default function Shop() {
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [priceRange, setPriceRange] = useState(150);
+  const [priceRange, setPriceRange] = useState(5000);
 
   const products = [
-    { name: 'Laptops', origPrice: 130.00, discPrice: 110.00, img: '/images/laptop.jpg', desc: 'High-performance laptops for all needs.' },
-    { name: 'TVs', origPrice: 85.00, discPrice: 70.00, img: '/images/tv.jpg', desc: 'Crystal-clear displays for your entertainment.' },
-    { name: 'AVs', origPrice: 60.00, discPrice: 39.00, img: '/images/av.jpg', desc: 'Top-quality audio-visual systems.' },
-    { name: 'Laptop Bags', origPrice: 75.00, discPrice: 55.00, img: '/images/page-1.jpeg', desc: 'Stylish and durable protection for your device.' },
-    { name: 'Sound Systems', origPrice: 60.00, discPrice: 39.00, img: '/images/sound-system.jpg', desc: 'Immersive audio experience for any space.' },
+    { name: 'Laptops', origPrice: 5300.00, discPrice: 4500.00, img: '/images/laptop.jpg', desc: 'High-performance laptops for all needs.' },
+    { name: 'TVs', origPrice: 2850.00, discPrice: 2570.00, img: '/images/tv.jpg', desc: 'Crystal-clear displays for your entertainment.' },
+    { name: 'AVs', origPrice: 900.00, discPrice: 850.00, img: '/images/ks.jpg', desc: 'Top-quality audio-visual systems.' },
+    { name: 'Laptop Bags', origPrice: 475.00, discPrice: 355.00, img: '/images/page-1.jpeg', desc: 'Stylish and durable protection for your device.' },
+    { name: 'Sound Systems', origPrice: 2600.00, discPrice: 2400.00, img: '/images/sound.jpg', desc: 'Immersive audio experience for any space.' },
   ];
 
   const filteredProducts = products.filter((product) => {
@@ -48,7 +48,7 @@ export default function Shop() {
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href="/shop" className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-red-500 text-white rounded-lg font-medium transition-colors">
+            <Link href="/Shop" className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-red-500 text-white rounded-lg font-medium transition-colors">
               Shop Now <FiArrowRight className="ml-2" />
             </Link>
           </motion.div>
@@ -87,12 +87,12 @@ export default function Shop() {
             <input
               type="range"
               min="0"
-              max="150"
+              max="5000"
               value={priceRange}
               onChange={(e) => setPriceRange(Number(e.target.value))}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
             />
-            <p className="text-sm text-gray-600 mt-2">Up to ${priceRange}</p>
+            <p className="text-sm text-gray-600 mt-2">Up to M{priceRange}</p>
           </div>
         </div>
 
@@ -114,12 +114,10 @@ export default function Shop() {
                   <p className="text-gray-600 text-sm mb-4">{product.desc}</p>
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-red-500 font-bold text-lg">${product.discPrice.toFixed(2)}</span>
-                      <span className="text-gray-400 line-through ml-2">${product.origPrice.toFixed(2)}</span>
+                      <span className="text-red-500 font-bold text-lg">M{product.discPrice.toFixed(2)}</span>
+                      <span className="text-gray-400 line-through ml-2">M{product.origPrice.toFixed(2)}</span>
                     </div>
-                    <button className="px-2 py-1 bg-blue-500 hover:bg-red-500 text-white rounded-lg transition-colors">
-                      Add to Cart
-                    </button>
+                  
                   </div>
                 </motion.div>
               ))}

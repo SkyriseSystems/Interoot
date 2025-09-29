@@ -28,7 +28,9 @@ const Header = ({ openNav }: props) => {
           <div className="logo">
             <LuNetwork className="logo-icon" />
           </div>
+          <Link href="/">
           <h1 className="logo-text hidden sm:block">Interoot</h1>
+          </Link>
         </div>
         <div className="nav-links hidden lg:flex">
           {NavLinks.map((navLink) => (

@@ -158,10 +158,10 @@ const ExplorePage = () => {
               ))}
             </div>
             <div className="text-center mt-12">
-              <Link href="/shop" className="explore-cta-button">
+              <Link href="/Shop" className="explore-cta-button">
                 Visit Shop 
               </Link>
-              <Link href="/solutions" className="explore-cta-button ml-4">
+              <Link href="/Solutions" className="explore-cta-button ml-4">
                 View Solutions
               </Link>
             </div>
